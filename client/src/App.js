@@ -7,6 +7,7 @@ function App() {
     <div className="App">
       <aside className="sidemenu">
         <div className="side-menu-button">
+          <span>+</span>
           New Chat
           </div>
       </aside>
