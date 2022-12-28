@@ -1,12 +1,16 @@
-import logo from './logo.svg';
 import './normal.css';
 import './App.css';
 
 //import setState
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    getEngines();
+  }, []);
+
   const [input, setInput] = useState('');
+  const [models, setModels] = useState('');
   const [chatLog, setChatLog] = useState([
     {
       user: 'gpt',
@@ -21,6 +25,11 @@ function App() {
   //clear chats
   function clearChat() {
     setChatLog([]);
+  }
+  function getEngines() {
+    fetch('http://localhost:3080/models')
+      .then(res => res.json())
+      .then(data => setModels(data.models.data));
   }
 
   async function handleSubmit(e) {
@@ -50,6 +59,13 @@ function App() {
           <span>+</span>
           New Chat
         </div>
+        {/* <div className='models'>
+          <select>
+            {models.map((models,index)=>(
+              <option key={models.id} value={models.id}>{models.id}</option>
+            ))}
+          </select>
+        </div> */}
       </aside>
       <section className="chatbox">
         <div className="chat-log">
