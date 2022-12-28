@@ -7,16 +7,20 @@
   top: 0;bottom: 0;left: 0;right: 0;
 }
 .sidemenu {
-  width: 240px;
-  border: 1px solid white;
+  width: 260px;
+  padding: 10px;
   background-color: #202123;
 }
 
 .chatbox{
   flex:1;
-  border:1px solid white;
   background-color: #343541;
 
+}
+.side-menu-button{
+  padding: 15px;
+  border:1px solid white;
+  border-radius:5px;
 }
 
 .App-logo {
