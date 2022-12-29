@@ -1,13 +1,13 @@
 import './normal.css';
 import './App.css';
-
+import axios from 'axios';
 //import setState
 import { useState, useEffect } from 'react';
 
 function App() {
-  useEffect(() => {
-    getEngines();
-  }, []);
+//   useEffect(() => {
+//     getEngines();
+//   }, []);
 
   const [input, setInput] = useState('');
   const [models, setModels] = useState('');
@@ -26,11 +26,11 @@ function App() {
   function clearChat() {
     setChatLog([]);
   }
-  function getEngines() {
-    fetch('http://localhost:3080/models')
-      .then(res => res.json())
-      .then(data => setModels(data.models.data));
-  }
+  // function getEngines() {
+  //   axios.get('http://localhost:3080/models')
+  //     .then(res => res.json())
+  //     .then(data => setModels(data.models.data));
+  // }
 
   async function handleSubmit(e) {
     e.preventDefault();
