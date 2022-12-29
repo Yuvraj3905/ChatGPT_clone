@@ -1,5 +1,5 @@
 // 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
-
+//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
 // import { Configuration, OpenAIApi } from 'openai';
 
 const { Configuration, OpenAIApi } = require('openai');
@@ -10,7 +10,8 @@ const cors = require('cors');
 
 const configuration = new Configuration({
   organization: 'org-b6C5lzjfuBUnMhXGG6FrvYWf',
-  apiKey: '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',
+  apiKey: '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',
+  // apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 
@@ -22,13 +23,14 @@ const port = 3080;
 app.post('/', async (req, res) => {
   const { message } = req.body;
   console.log(message, 'message');
-  const response = await open.ai.createCompletion({
+  const response = await openai.createCompletion({
     model: 'text-davinci-003',
     prompt: `${message}`,
     max_tokens: 100,
     temperature: 0.5,
   });
-  res.join({
+  // console.log(response);
+  res.json({
     message: response.data.choices[0].text,
   });
 });

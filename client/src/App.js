@@ -5,12 +5,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 function App() {
-//   useEffect(() => {
-//     getEngines();
-//   }, []);
+  //   useEffect(() => {
+  //     getEngines();
+  //   }, []);
 
   const [input, setInput] = useState('');
-  const [models, setModels] = useState('');
+  // const [models, setModels] = useState('');
   const [chatLog, setChatLog] = useState([
     {
       user: 'gpt',
@@ -45,7 +45,7 @@ function App() {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        messages: messages,
+        message: messages,
       }),
     });
     const data = await response.json();
